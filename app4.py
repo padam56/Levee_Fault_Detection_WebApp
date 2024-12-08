@@ -7,7 +7,8 @@ import tensorflow_addons as tfa
 import tensorflow as tf
 from tensorflow.keras import backend as K
 from metrics import mcc_loss, mcc_metric, dice_coef, dice_loss, f1, tversky, tversky_loss, focal_tversky_loss, bce_dice_loss_new, jaccard, bce_dice_loss
-from SandBoilNet import PCALayer, spatial_pooling_block, attention_block, initial_conv2d_bn, old_attention_block, conv2d_bn, iterLBlock, decoder_block, SandboilNet_Dropout
+from SandBoilNet import PCALayer, spatial_pooling_block, attention_block, initial_conv2d_bn, conv2d_bn, iterLBlock, decoder_block
+# SandboilNet_Dropout, old_attention_block
 import gc
 import os
 import time
@@ -27,7 +28,7 @@ def kill_gpu_processes():
                 print(f"Killed process with PID: {pid}")
             except Exception as e:
                 print(f"Could not kill process {pid}: {e}")
-kill_gpu_processes()
+#kill_gpu_processes()
 
 def enable_memory_growth():
     gpus = tf.config.list_physical_devices('GPU')
